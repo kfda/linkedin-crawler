@@ -6,14 +6,14 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - webbee:/data/db
+      - webbee_vol_new:/data/db
       - ./init-scripts/init.js:/docker-entrypoint-initdb.d/mongo-init.js
     environment:
-      - MONGO_INITDB_DATABASE={DB_DATABASE}
-      - MONGO_INITDB_ROOT_USERNAME={DB_ROOT_USERNAME}
-      - MONGO_INITDB_ROOT_PASSWORD={DB_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=your-database-name
+      - MONGO_INITDB_ROOT_USERNAME=your-username
+      - MONGO_INITDB_ROOT_PASSWORD=your-password
     platform: linux/arm64/v8
     expose:
       - 27017
 volumes:
-  webbee:
+  webbee_vol_new:
